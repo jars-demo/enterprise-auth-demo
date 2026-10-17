@@ -1,0 +1,17 @@
+[project]
+name = "enterprise-auth-lab"
+version = "0.1.0"
+description = "SSO, OIDC, OAuth 2.0, SAML, roles and tenant isolation, hands on, standard library only."
+license = "MIT"
+requires-python = ">=3.12"
+dependencies = []
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]

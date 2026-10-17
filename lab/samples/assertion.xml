@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A SAML 2.0 assertion as an identity provider would send it, trimmed for reading.
+     A real one also carries a <ds:Signature> over the whole element. -->
+<saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+                ID="_a75adf55-01d7-40cc-929f-dbd8372ebdfc" Version="2.0"
+                IssueInstant="2026-03-02T09:00:00Z">
+  <saml:Issuer>https://idp.acme.test</saml:Issuer>
+  <saml:Subject>
+    <saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress">alice@acme.test</saml:NameID>
+    <saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+      <saml:SubjectConfirmationData Recipient="https://invoices.example/saml/acs"
+                                    NotOnOrAfter="2026-03-02T09:05:00Z"/>
+    </saml:SubjectConfirmation>
+  </saml:Subject>
+  <saml:Conditions NotBefore="2026-03-02T08:59:30Z" NotOnOrAfter="2026-03-02T09:05:00Z">
+    <saml:AudienceRestriction>
+      <saml:Audience>https://invoices.example/saml/metadata</saml:Audience>
+    </saml:AudienceRestriction>
+  </saml:Conditions>
+  <saml:AuthnStatement AuthnInstant="2026-03-02T09:00:00Z">
+    <saml:AuthnContext>
+      <saml:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</saml:AuthnContextClassRef>
+    </saml:AuthnContext>
+  </saml:AuthnStatement>
+  <saml:AttributeStatement>
+    <saml:Attribute Name="tenant">
+      <saml:AttributeValue>acme</saml:AttributeValue>
+    </saml:Attribute>
+    <saml:Attribute Name="roles">
+      <saml:AttributeValue>admin</saml:AttributeValue>
+    </saml:Attribute>
+  </saml:AttributeStatement>
+</saml:Assertion>
